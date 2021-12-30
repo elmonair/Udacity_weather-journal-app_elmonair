@@ -1,0 +1,26 @@
+{
+  "name": "udacity_weather-journal-app_elmonair",
+  "version": "1.0.0",
+  "description": "## Overview This project requires you to create an asynchronous web app that uses Web API and user data to dynamically update the UI.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elmonair/Udacity_weather-journal-app_elmonair.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elmonair/Udacity_weather-journal-app_elmonair/issues"
+  },
+  "homepage": "https://github.com/elmonair/Udacity_weather-journal-app_elmonair#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
+  }
+}
