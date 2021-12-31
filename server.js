@@ -24,3 +24,9 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Our server running on localhost port ${port}`);
 });
+
+app.post('/saveData', (req, res) => {
+  projectData = req.body;
+  res.send('Saved');
+  console.log(projectData);
+});

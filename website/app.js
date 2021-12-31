@@ -19,6 +19,7 @@ async function mainHandler(e) {
   const feelings = document.getElementById('feelings').value;
   const temp = await getTempData(postalCode);
   console.log(temp);
+  sendDataToServer(temp, feelings);
 }
 
 const getTempData = async (postalCode) => {
@@ -33,4 +34,19 @@ const getTempData = async (postalCode) => {
   } catch (err) {
     console.log(err);
   }
+};
+
+const sendDataToServer = async (temp, feelings) => {
+  await fetch('/saveData', {
+    method: 'POST',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      date: newDate,
+      temp,
+      feelings,
+    }),
+  });
 };
