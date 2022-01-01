@@ -16,6 +16,10 @@ To use thi project just need to:
 - run npm install in terminal to download dependencies.
 - run nodemon server.java in terminal\*
 
+## Screenshot
+![2022-01-01_11-59-50](https://user-images.githubusercontent.com/93096248/147845680-bdfff900-bac4-4fed-8a8d-269aaed5b4d1.png)
+
+
 ## sources
 
 - https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction
