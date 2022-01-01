@@ -25,8 +25,14 @@ app.listen(port, () => {
   console.log(`Our server running on localhost port ${port}`);
 });
 
-app.post('/saveData', (req, res) => {
+app.post('/savedata', (req, res) => {
   projectData = req.body;
   res.send('Saved');
+  console.log(projectData);
+});
+
+app.get('/getdata', (req, res) => {
+  res.json(projectData);
+  ///  res.send(projectData);
   console.log(projectData);
 });
