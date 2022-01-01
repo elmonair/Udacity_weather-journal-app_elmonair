@@ -5,7 +5,7 @@ const date = document.getElementById('date');
 const feelings = document.getElementById('content');
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear();
+let newDate = d.getMonth() + 1 + '.' + d.getDate() + '.' + d.getFullYear();
 
 // Personal API Key for OpenWeatherMap API
 const apiKey = '22d7980c9ec957151364a471a0fbeb99';
@@ -20,6 +20,7 @@ async function mainHandler(e) {
   const temp = await getTempData(postalCode);
   console.log(temp);
   sendDataToServer(temp, feelings);
+  getDataFromServer();
 }
 
 const getTempData = async (postalCode) => {
@@ -37,7 +38,7 @@ const getTempData = async (postalCode) => {
 };
 
 const sendDataToServer = async (temp, feelings) => {
-  await fetch('/saveData', {
+  await fetch('/savedata', {
     method: 'POST',
     credentials: 'same-origin',
     headers: {
@@ -49,4 +50,18 @@ const sendDataToServer = async (temp, feelings) => {
       feelings,
     }),
   });
+};
+
+/* Function to GET Project Data */
+const getDataFromServer = async () => {
+  const response = await fetch('/getdata');
+  try {
+    const dataToGet = await response.json();
+    // Write updated data to DOM elements
+    temp.textContent = Math.round(dataToGet.temp) + '°';
+    date.textContent = dataToGet.date;
+    feelings.textContent = dataToGet.feelings;
+  } catch (error) {
+    console.log('error', error);
+  }
 };
