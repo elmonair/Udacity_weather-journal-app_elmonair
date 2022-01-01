@@ -58,9 +58,9 @@ const getDataFromServer = async () => {
   try {
     const dataToGet = await response.json();
     // Write updated data to DOM elements
-    temp.textContent = Math.round(dataToGet.temp) + '°';
-    date.textContent = dataToGet.date;
-    feelings.textContent = dataToGet.feelings;
+    temp.innerHTML = Math.round(dataToGet.temp) + '°';
+    date.innerHTML = dataToGet.date;
+    feelings.innerHTML = dataToGet.feelings;
   } catch (error) {
     console.log('error', error);
   }
